@@ -29,12 +29,14 @@ export default function Scenarios() {
       <View style={styles.cardOverlay}>
         <Text style={styles.duration}>⏱ {item.durationLabel}</Text>
         <Text style={styles.cardTitle}>{item.title}</Text>
-        <Text style={styles.cardDescription} numberOfLines={4}>
+        <Text style={styles.cardDescription} numberOfLines={2}>
           {item.description}
         </Text>
         <TouchableOpacity
           style={styles.startButton}
-          onPress={() => router.push(`/(main)/scenario/${item.id}/briefing`)}
+          onPress={() =>
+            router.push(`/(main)/scenario/${item.id}/briefing` as any)
+          }
         >
           <Text style={styles.startButtonText}>Start</Text>
         </TouchableOpacity>
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: CARD_WIDTH,
-    height: 340,
+    height: 220,
     marginRight: Spacing.md,
     borderRadius: BorderRadius.lg,
     overflow: "hidden",
